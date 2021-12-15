@@ -254,7 +254,7 @@ namespace TypeWeakness
 
             foreach (var item in types)
             {
-                if (item.Value > 0 || item.Value < 0)
+                if (item.Value != 0)
                 {
                     typesNoNeutral.Add(item.Key, item.Value);
                 }
