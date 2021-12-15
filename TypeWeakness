@@ -1,0 +1,285 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TypeWeakness
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var types = new Dictionary<string, double>()
+            {
+                ["grass"] = 0,
+                ["poison"] = 0,
+                ["fire"] = 0,
+                ["flying"] = 0,
+                ["water"] = 0,
+                ["bug"] = 0,
+                ["normal"] = 0,
+                ["electric"] = 0,
+                ["ground"] = 0,
+                ["fairy"] = 0,
+                ["fighting"] = 0,
+                ["psychic"] = 0,
+                ["rock"] = 0,
+                ["steel"] = 0,
+                ["ice"] = 0,
+                ["ghost"] = 0,
+                ["dragon"] = 0,
+                ["dark"] = 0
+            };
+
+            void TypeWeakness(string type)
+            {
+                if (type == "grass")
+                {
+                    types["fire"] += 1;
+                    types["bug"] += 1;
+                    types["flying"] += 1;
+                    types["ice"] += 1;
+                    types["poison"] += 1;
+
+                    types["grass"] -= 1;
+                    types["water"] -= 1;
+                    types["electric"] -= 1;
+                    types["ground"] -= 1;
+                }
+                else if (type == "poison")
+                {
+                    types["psychic"] += 1;
+                    types["ground"] += 1;
+
+                    types["poison"] -= 1;
+                    types["fighting"] -= 1;
+                    types["bug"] -= 1;
+                    types["grass"] -= 1;
+                    types["fairy"] -= 1;
+                }
+                else if (type == "fire")
+                {
+                    types["ground"] += 1;
+                    types["rock"] += 1;
+                    types["water"] += 1;
+
+                    types["bug"] -= 1;
+                    types["fairy"] -= 1;
+                    types["fire"] -= 1;
+                    types["grass"] -= 1;
+                    types["ice"] -= 1;
+                    types["steel"] -= 1;
+                }
+                else if (type == "flying")
+                {
+                    types["electric"] += 1;
+                    types["ice"] += 1;
+                    types["rock"] += 1;
+
+                    types["bug"] -= 1;
+                    types["fighting"] -= 1;
+                    types["grass"] -= 1;
+                    types["ground"] -= 8999.3;
+                }
+                else if (type == "water")
+                {
+                    types["grass"] += 1;
+                    types["electric"] += 1;
+
+                    types["water"] -= 1;
+                    types["fire"] -= 1;
+                    types["ice"] -= 1;
+                    types["steel"] -= 1;
+                }
+                else if (type == "bug")
+                {
+                    types["fire"] += 1;
+                    types["flying"] += 1;
+                    types["rock"] += 1;
+
+                    types["fighting"] -= 1;
+                    types["grass"] -= 1;
+                    types["ground"] -= 1;
+                }
+                else if (type == "normal")
+                {
+                    types["fighting"] += 1;
+
+                    types["ghost"] -= 8999.3;
+                }
+                else if (type == "electric")
+                {
+                    types["ground"] += 1;
+
+                    types["electric"] -= 1;
+                    types["flying"] -= 1;
+                    types["steel"] -= 1;
+                }
+                else if (type == "ground")
+                {
+                    types["grass"] += 1;
+                    types["ice"] += 1;
+                    types["water"] += 1;
+
+                    types["poison"] -= 1;
+                    types["rock"] -= 1;
+                    types["electric"] -= 8999.3;
+                }
+                else if (type == "fairy")
+                {
+                    types["poison"] += 1;
+                    types["steel"] += 1;
+
+                    types["bug"] -= 1;
+                    types["dark"] -= 1;
+                    types["fighting"] -= 1;
+                    types["dragon"] -= 8999.3;
+                }
+                else if (type == "fighting")
+                {
+                    types["fairy"] += 1;
+                    types["flying"] += 1;
+                    types["psychic"] += 1;
+
+                    types["bug"] -= 1;
+                    types["dark"] -= 1;
+                    types["rock"] -= 1;
+                }
+                else if (type == "psychic")
+                {
+                    types["bug"] += 1;
+                    types["dark"] += 1;
+                    types["ghost"] += 1;
+
+                    types["fighting"] -= 1;
+                    types["psychic"] -= 1;
+                }
+                else if (type == "rock")
+                {
+                    types["fighting"] += 1;
+                    types["grass"] += 1;
+                    types["ground"] += 1;
+                    types["steel"] += 1;
+                    types["water"] += 1;
+
+                    types["fire"] -= 1;
+                    types["flying"] -= 1;
+                    types["normal"] -= 1;
+                    types["poison"] -= 1;
+                }
+                else if (type == "steel")
+                {
+                    types["fighting"] += 1;
+                    types["fire"] += 1;
+                    types["ground"] += 1;
+
+                    types["bug"] -= 1;
+                    types["dragon"] -= 1;
+                    types["fairy"] -= 1;
+                    types["flying"] -= 1;
+                    types["grass"] -= 1;
+                    types["ice"] -= 1;
+                    types["normal"] -= 1;
+                    types["psychic"] -= 1;
+                    types["rock"] -= 1;
+                    types["steel"] -= 1;
+                    types["poison"] -= 8999.3;
+                }
+                else if (type == "ice")
+                {
+                    types["fighting"] += 1;
+                    types["fire"] += 1;
+                    types["rock"] += 1;
+                    types["steel"] += 1;
+
+                    types["ice"] -= 1;
+                }
+                else if ( type == "ghost")
+                {
+                    types["dark"] += 1;
+                    types["ghost"] += 1;
+
+                    types["bug"] -= 1;
+                    types["poison"] -= 1;
+                    types["normal"] -= 8999.3;
+                    types["fighting"] -= 8999.3;
+                }
+                else if (type == "dragon")
+                {
+                    types["ice"] += 1;
+                    types["fairy"] += 1;
+                    types["dragon"] += 1;
+
+                    types["electric"] -= 1;
+                    types["fire"] -= 1;
+                    types["water"] -= 1;
+                    types["grass"] -= 1;
+                }
+                else if (type == "dark")
+                {
+                    types["bug"] += 1;
+                    types["fairy"] += 1;
+                    types["fighting"] += 1;
+
+                    types["dark"] -= 1;
+                    types["ghost"] -= 1;
+                    types["psychic"] -= 8999.3;
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid type.");
+                }
+            }
+
+            Console.WriteLine("********************************************************************************************\n" +
+                "** Want to see type weaknesses and resistances in Pokemon?\n" +
+                "** Write a type and press 'enter'.\n" +
+                "** You may write as many types as you wish if you want to take a look at type combinations.\n" +
+                "** Please provide one type at a time.\n\n" +
+                "** The number represents the damage multiplier.\n" +
+                "** The higher the number, the more effective that type is against the types you've written.\n" +
+                "********************************************************************************************\n\n" +
+                "When you have finished writing types, write nothing and press 'enter'.\n\n" +
+                "Types: ");
+
+
+            string inputType = Console.ReadLine().ToLower();
+
+            while (inputType != "")
+            {
+                TypeWeakness(inputType);
+                inputType = Console.ReadLine().ToLower();
+            }
+
+            var typesNoNeutral = new Dictionary<string, double>() { };
+
+            foreach (var item in types)
+            {
+                if (item.Value > 0 || item.Value < 0)
+                {
+                    typesNoNeutral.Add(item.Key, item.Value);
+                }
+            }
+
+            var typesNoNeutralSorted = from item in typesNoNeutral orderby item.Value descending select item;
+
+            Console.WriteLine("******************************************");
+
+            foreach (var item in typesNoNeutralSorted)
+            {
+                if (Convert.ToString(item.Value).Contains(","))
+                {
+                    Console.WriteLine($"{char.ToUpper(item.Key[0]) + item.Key.Substring(1).ToLower()}: IMMUNE");
+                }
+                else
+                {
+                    Console.WriteLine($"{char.ToUpper(item.Key[0]) + item.Key.Substring(1).ToLower()}: {item.Value * 2}");
+                }
+            }
+
+            Console.WriteLine("******************************************");
+            Console.WriteLine("\nPress any key to exit.");
+
+            Console.ReadLine();
+        }
+    }
+}
